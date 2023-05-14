@@ -1,8 +1,8 @@
 import { createContext, useReducer } from "react";
 import { todosReducer } from "../reducers/todosReducer";
 
-export const TodoListContext = createContext();
 
+export const TodoListContext = createContext();
 
 const TodoListContextProvider = ({ children }) => {
   const [todos, dispatch] = useReducer(todosReducer, []);

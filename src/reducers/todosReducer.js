@@ -6,5 +6,5 @@ export const todosReducer = (state, action) => {
       return state.filter((todo) => todo.id !== Number(action.id));
     default:
       return state;
-  }
+  } 
 };
