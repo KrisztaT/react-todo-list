@@ -12,13 +12,6 @@ const TodoList = () => {
 
   const handleChangeStatus = (id, status) => {
     dispatch({ type: "CHANGE_STATUS", id, status });
-    // This is not the react way I know,
-    // but there is no rerender in case the status state change
-    // I'll try to figure out why is that, but till that time...
-    const statusCell = document.querySelector(`.status-${id}`);
-    if (statusCell) {
-      statusCell.textContent = status;
-    }
   };
 
   console.log(todos)
@@ -44,11 +37,11 @@ const TodoList = () => {
                 {todos.map((element) => {
                   return (
                     <tr key={element.id}>
-                      <td>{element.todo.title}</td>
-                      <td>{element.todo.description}</td>
-                      <td>{element.todo.dueDate}</td>
+                      <td>{element.title}</td>
+                      <td>{element.description}</td>
+                      <td>{element.dueDate}</td>
                       <td className={`status-${element.id}`}>
-                        {element.todo.status}
+                        {element.status}
                       </td>
                       <td>
                         <div
