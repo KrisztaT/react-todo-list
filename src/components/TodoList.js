@@ -5,6 +5,7 @@ import { Card, Container } from "react-bootstrap";
 
 const TodoList = () => {
   const { todos, dispatch } = useContext(TodoListContext);
+  console.log(todos)
 
   const handleRemoveTodo = (e) => {
     dispatch({ type: "REMOVE_TODO", id: e.target.id });
@@ -21,15 +22,15 @@ const TodoList = () => {
         </Card.Header>
         <Card.Body>
           {todos.length ? (
-            todos.map((todo) => {
+            todos.map((element) => {
               return (
                 <p
-                  id={todo.id}
+                  id={element.todo.id}
                   onClick={handleRemoveTodo}
-                  key={todo.id}
+                  key={element.todo.id}
                   className="mb-2 m-0"
                 >
-                  {todo.text}
+                  {element.todo.title}
                   {/* <div
                       className="btn-group"
                       role="group"
