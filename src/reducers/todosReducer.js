@@ -7,14 +7,12 @@ export const todosReducer = (state, action) => {
           todo: {
             title: action.todo.title,
             description: action.todo.description,
-            date: action.todo.date,
+            dueDate: action.todo.dueDate,
             status: action.todo.status,
           },
             id: Math.random() + 1,
         },
       ];
-    case "REMOVE_TODO":
-      return state.filter((todo) => todo.id !== Number(action.id));
     default:
       return state;
   }

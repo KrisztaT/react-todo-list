@@ -2,36 +2,36 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const AddNewTodo = ({ dispatch }) => {
-  const [newTodo, setNewTodo] = useState({ title: "", description: "", date: "", status: "" });
+  const [newTodo, setNewTodo] = useState({ title: "", description: "", dueDate: "", status: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newTodo);
+    //console.log(newTodo);
     dispatch({
       type: "ADD_TODO",
       todo: {
         title: newTodo.title,
         description: newTodo.description,
-        date: newTodo.date,
+        dueDate: newTodo.dueDate,
         status: newTodo.status,
       },
     });
-    setNewTodo({ title: "", description: "", date: "", status: "" });
-    
+    setNewTodo({ title: "", description: "", dueDate: "", status: "" });
+
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center h-100">
       <Form onSubmit={handleSubmit} className="w-50 mt-3">
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-1">
           <Form.Control
             type="text"
             value={newTodo.title}
             onChange={(e) => setNewTodo({ ...newTodo, title: e.target.value })}
-            placeholder="Enter Title"
+            placeholder="Enter title"
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-1">
           <Form.Control
             as="textarea"
             placeholder="Enter description"
@@ -41,23 +41,21 @@ const AddNewTodo = ({ dispatch }) => {
             }
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-1">
           <Form.Control
             type="date"
-            placeholder="Enter due date"
-            value={newTodo.date}
-            onChange={(e) => setNewTodo({ ...newTodo, date: e.target.value })}
+            value={newTodo.dueDate}
+            onChange={(e) => setNewTodo({ ...newTodo, dueDate: e.target.value })}
           />
         </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Status</Form.Label>
+        <Form.Group className="mb-1">
           <Form.Control
             as="select"
-            defaultValue="Choose..."
+            defaultValue="Choose status..."
             value={newTodo.status}
             onChange={(e) => setNewTodo({ ...newTodo, status: e.target.value })}
           >
-            <option>Choose...</option>
+            <option>Choose status...</option>
             <option>To Do</option>
             <option>In Progress</option>
             <option>Done</option>
