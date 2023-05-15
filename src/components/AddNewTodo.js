@@ -6,7 +6,7 @@ const AddNewTodo = ({ dispatch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(newTodo);
+    console.log(newTodo);
     dispatch({
       type: "ADD_TODO",
       todo: {
@@ -51,7 +51,6 @@ const AddNewTodo = ({ dispatch }) => {
         <Form.Group className="mb-1">
           <Form.Control
             as="select"
-            defaultValue="Choose status..."
             value={newTodo.status}
             onChange={(e) => setNewTodo({ ...newTodo, status: e.target.value })}
           >

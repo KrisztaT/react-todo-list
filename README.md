@@ -2,7 +2,8 @@
 
         Under development
 
-This is a simple React application that is for practising the use of React Context and Reducer for state management. The app allows to add new todo items and delete existing ones by clicking on them.
+This is a simple React application that is for practising the use of React Context and Reducer for state management.
+The app allows users to add, edit the status, and delete todos. Each todo can have a title, description, due date, and status. The status of the todo can be changed by clicking the "In Progress" or "Done" buttons. Todos can be deleted by clicking the delete button.
 
 ![Todo List React App](./public/Todo_list.png)
 
@@ -24,9 +25,9 @@ This is a simple React application that is for practising the use of React Conte
 
 ## Usage
 
-To add a new todo item, type the task description in the input field at the top and press the Enter key or click the "Add New ToDo" button. The new item will be added to the list below.
-
-To delete a finished todo item, click on the todo text.
+1. To add a new todo, fill out the form with the title, description, due date and status. Click "Add New Todo" to add the todo to the list.
+2. To change the status of a todo, click the "In Progress" or "Done" button next to the todo. The status will update.
+3. To delete a todo, click the "Delete" button next to the todo. The todo will be removed from the list.
 
 ## License
 

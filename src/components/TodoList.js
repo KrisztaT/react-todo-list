@@ -6,16 +6,25 @@ import { Card, Container, Table } from "react-bootstrap";
 const TodoList = () => {
   const { todos, dispatch } = useContext(TodoListContext);
 
-  //console.log(todos);
+  const handleRemoveTodo = (id) => {
+    dispatch({ type: "REMOVE_TODO", id });
+  };
 
- /*  const handleRemoveTodo = (e) => {
-    console.log(e.target.id);
-    dispatch({ type: "REMOVE_TODO", id: e.target.id });
-  }; */
+  const handleChangeStatus = (id, status) => {
+    dispatch({ type: "CHANGE_STATUS", id, status });
+    // This is not the react way I know,
+    // but there is no rerender in case the status state change
+    // I'll try to figure out why is that, but till that time...
+    const statusCell = document.querySelector(`.status-${id}`);
+    if (statusCell) {
+      statusCell.textContent = status;
+    }
+  };
 
+  console.log(todos)
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
-      <Card className="shadow-sm w-50 overflow-auto">
+      <Card className="shadow-sm w-60">
         <Card.Header as="h1" className="text-center sticky-top">
           ToDo List
         </Card.Header>
@@ -28,7 +37,7 @@ const TodoList = () => {
                   <th>Description</th>
                   <th>Due Date</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Change status/Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -38,18 +47,41 @@ const TodoList = () => {
                       <td>{element.todo.title}</td>
                       <td>{element.todo.description}</td>
                       <td>{element.todo.dueDate}</td>
-                      <td>{element.todo.status}</td>
+                      <td className={`status-${element.id}`}>
+                        {element.todo.status}
+                      </td>
                       <td>
                         <div
                           className="btn-group d-flex justify-content-center align-items-center"
                           role="group"
                           aria-label="Basic mixed styles example"
                         >
-                          <button type="button" className="btn btn-danger">
-                            Delete
+                          <button
+                            type="button"
+                            className="btn btn-warning mx-2"
+                            onClick={() =>
+                              handleChangeStatus(element.id, "In Progress")
+                            }
+                          >
+                            In progress
                           </button>
-                          <button type="button" className="btn btn-warning">
-                            Change
+                          <button
+                            type="button"
+                            className="btn btn-success mx-2"
+                            onClick={() =>
+                              handleChangeStatus(element.id, "Done")
+                            }
+                          >
+                            Done
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-danger mx-2"
+                            onClick={() => {
+                              handleRemoveTodo(element.id);
+                            }}
+                          >
+                            Delete
                           </button>
                         </div>
                       </td>
