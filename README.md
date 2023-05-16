@@ -3,7 +3,7 @@
         Under development
 
 This is a simple React application that is for practising the use of React Context and Reducer for state management.
-The app allows users to add, edit the status, and delete todos. Each todo can have a title, description, due date, and status. The status of the todo can be changed by clicking the "In Progress" or "Done" buttons. Todos can be deleted by clicking the delete button.
+The app allows users to add, edit the status, and delete todos. Each todo can have a title, description, due date, and status. The status of the todo can be changed by clicking the "In Progress" or "Done" buttons. Todos can be deleted by clicking the delete button. Todos that are overdue based on there due dates but not yet done will be highlighted in red.
 
 ![Todo List React App](./public/Todo_list.png)
 

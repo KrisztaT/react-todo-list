@@ -1,1 +1,3 @@
-
+.overdue {
+    background-image: linear-gradient(to bottom right, #ffcccc, #ff9999) !important;
+  }

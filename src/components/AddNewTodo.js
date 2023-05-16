@@ -6,7 +6,6 @@ const AddNewTodo = ({ dispatch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newTodo);
     dispatch({
       type: "ADD_TODO",
       todo: {
@@ -17,7 +16,6 @@ const AddNewTodo = ({ dispatch }) => {
       },
     });
     setNewTodo({ title: "", description: "", dueDate: "", status: "" });
-
   };
 
   return (

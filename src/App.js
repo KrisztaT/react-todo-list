@@ -1,5 +1,6 @@
 import TodoList from "./components/TodoList";
 import TodoListContextProvider from "./contexts/TodoLisContext";
+import "./App.css"
 
 function App() {
   return (
