@@ -3,7 +3,6 @@ import AddNewTodo from "./AddNewTodo";
 import { TodoListContext } from "../contexts/TodoLisContext";
 import { Card, Container, Table } from "react-bootstrap";
 
-
 const TodoList = () => {
   const { todos, dispatch } = useContext(TodoListContext);
 
@@ -15,15 +14,21 @@ const TodoList = () => {
     dispatch({ type: "CHANGE_STATUS", id, status });
   };
 
-  const isOverdue = (dueDate) => {
+  const classNameSelector = (dueDate, status) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-  
+
     const due = new Date(dueDate);
     due.setHours(0, 0, 0, 0);
-  
-    return due < today;
-  }
+
+    if (due < today && status !== "Done") {
+      return "overdue";
+    } else if (status === "Done") {
+      return "done";
+    } else {
+      return "";
+    }
+  };
 
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
@@ -46,10 +51,16 @@ const TodoList = () => {
               <tbody>
                 {todos.map((element) => {
                   return (
-                    <tr key={element.id} className={isOverdue(element.dueDate) && element.status !== "Done" ? 'overdue' : ''}>
+                    <tr
+                      key={element.id}
+                      className={classNameSelector(
+                        element.dueDate,
+                        element.status
+                      )}
+                    >
                       <td>{element.title}</td>
                       <td>{element.description}</td>
-                      <td >{element.dueDate}</td>
+                      <td>{element.dueDate}</td>
                       <td>{element.status}</td>
                       <td>
                         <div

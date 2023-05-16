@@ -11,15 +11,15 @@ The app allows users to add, edit the status, and delete todos. Each todo can ha
 
 1. To run the app locally, clone the repository to your local machine:
 
-```git clone https://github.com/your-username/react-todo-list.git```
+```git clone https://github.com/your-username/react-todo-list.git```  
 
 2. Navigate to the project directory:
 
-```cd todo-list-app```
+```cd todo-list-app```  
 
 3. Start the app:
 
-```npm start``` or ```yarn start```
+```npm start``` or ```yarn start```  
 
 4. This will start the app in development mode and open it in your default browser at http://localhost:3000.
 
