@@ -30,6 +30,7 @@ const TodoList = () => {
     }
   };
 
+
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
       <Card className="shadow-sm w-60">
@@ -49,19 +50,19 @@ const TodoList = () => {
                 </tr>
               </thead>
               <tbody>
-                {todos.map((element) => {
+                {todos.map((todo) => {
                   return (
                     <tr
-                      key={element.id}
+                      key={todo.id}
                       className={classNameSelector(
-                        element.dueDate,
-                        element.status
+                        todo.dueDate,
+                        todo.status
                       )}
                     >
-                      <td>{element.title}</td>
-                      <td>{element.description}</td>
-                      <td>{element.dueDate}</td>
-                      <td>{element.status}</td>
+                      <td>{todo.title}</td>
+                      <td>{todo.description}</td>
+                      <td>{todo.dueDate}</td>
+                      <td>{todo.status}</td>
                       <td>
                         <div
                           className="btn-group d-flex justify-content-center align-items-center"
@@ -72,7 +73,7 @@ const TodoList = () => {
                             type="button"
                             className="btn btn-warning mx-2"
                             onClick={() =>
-                              handleChangeStatus(element.id, "In Progress")
+                              handleChangeStatus(todo.id, "In Progress")
                             }
                           >
                             In progress
@@ -81,7 +82,7 @@ const TodoList = () => {
                             type="button"
                             className="btn btn-success mx-2"
                             onClick={() =>
-                              handleChangeStatus(element.id, "Done")
+                              handleChangeStatus(todo.id, "Done")
                             }
                           >
                             Done
@@ -90,7 +91,7 @@ const TodoList = () => {
                             type="button"
                             className="btn btn-danger mx-2"
                             onClick={() => {
-                              handleRemoveTodo(element.id);
+                              handleRemoveTodo(todo.id);
                             }}
                           >
                             Delete

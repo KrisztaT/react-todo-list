@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const todosReducer = (state, action) => {
   switch (action.type) {
+    case "READ": return action.todos;
     case "ADD_TODO":
       return [
         ...state,
