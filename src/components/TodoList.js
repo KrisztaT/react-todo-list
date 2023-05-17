@@ -14,6 +14,10 @@ const TodoList = () => {
     dispatch({ type: "CHANGE_STATUS", id, status });
   };
 
+  const sortByDueDate = () => {
+    dispatch({ type: "SORT_BY_DUE_DATE" });
+  };
+
   const classNameSelector = (dueDate, status) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -30,7 +34,6 @@ const TodoList = () => {
     }
   };
 
-
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
       <Card className="shadow-sm w-60">
@@ -44,7 +47,7 @@ const TodoList = () => {
                 <tr>
                   <th>Title</th>
                   <th>Description</th>
-                  <th>Due Date</th>
+                  <th onClick={sortByDueDate}>Due Date</th>
                   <th>Status</th>
                   <th>Change status/Delete</th>
                 </tr>
@@ -54,10 +57,7 @@ const TodoList = () => {
                   return (
                     <tr
                       key={todo.id}
-                      className={classNameSelector(
-                        todo.dueDate,
-                        todo.status
-                      )}
+                      className={classNameSelector(todo.dueDate, todo.status)}
                     >
                       <td>{todo.title}</td>
                       <td>{todo.description}</td>
@@ -81,9 +81,7 @@ const TodoList = () => {
                           <button
                             type="button"
                             className="btn btn-success mx-2"
-                            onClick={() =>
-                              handleChangeStatus(todo.id, "Done")
-                            }
+                            onClick={() => handleChangeStatus(todo.id, "Done")}
                           >
                             Done
                           </button>

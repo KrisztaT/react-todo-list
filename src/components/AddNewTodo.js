@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const AddNewTodo = ({ dispatch }) => {
-  const [newTodo, setNewTodo] = useState({ title: "", description: "", dueDate: "", status: "" });
+  const [newTodo, setNewTodo] = useState({
+    title: "",
+    description: "",
+    dueDate: "",
+    status: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +48,9 @@ const AddNewTodo = ({ dispatch }) => {
           <Form.Control
             type="date"
             value={newTodo.dueDate}
-            onChange={(e) => setNewTodo({ ...newTodo, dueDate: e.target.value })}
+            onChange={(e) =>
+              setNewTodo({ ...newTodo, dueDate: e.target.value })
+            }
           />
         </Form.Group>
         <Form.Group className="mb-1">

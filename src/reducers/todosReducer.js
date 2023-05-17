@@ -2,7 +2,8 @@ import { v4 as uuidv4 } from "uuid";
 
 export const todosReducer = (state, action) => {
   switch (action.type) {
-    case "READ": return action.todos;
+    case "READ":
+      return action.todos;
     case "ADD_TODO":
       return [
         ...state,
@@ -25,6 +26,12 @@ export const todosReducer = (state, action) => {
           };
         }
         return todo;
+      });
+    case "SORT_BY_DUE_DATE":
+      return [...state].sort((a, b) => {
+        const dateA = new Date(a.dueDate);
+        const dateB = new Date(b.dueDate);
+        return dateA.getTime() - dateB.getTime();
       });
     default:
       return state;
