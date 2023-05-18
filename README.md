@@ -21,6 +21,10 @@ The useLocalStorage hook ensures persistent storage, allowing users to resume th
 * Sort todos based on their due date for better organisation.
 * Persistent storage for todos
 
+## Demo
+
+Check out the deployed app at https://todo-list-react-k.netlify.app
+
 ## Screenshots
 
 New ToDos added and listed.
