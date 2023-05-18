@@ -13,10 +13,12 @@ const TodoListContextProvider = ({ children }) => {
     if (persistentData) {
       dispatch({ type: "READ", todos: persistentData });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     setPersistentData(todos);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todos]);
 
   return (
