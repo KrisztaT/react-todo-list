@@ -4,21 +4,19 @@
 
 This ToDo List App is a simple **React** application designed for practicing the use of **Context** and **Reducer** for efficient state management. It additionally incorporates hooks such as the **useLocalStorage, useEffect, useState** and **Bootstrap** for enhanced user experience.
 
-Each to-do item consists of a title, description, due date, and status. Users can add new tasks, edit the status of existing tasks, and delete tasks as needed.
+Each to-do item consists of a title, description, due date, and status (upon adding the task, the status automatically gets the To Do value). Users can add new tasks, edit the status of existing tasks, and delete tasks as needed.
 
-The status of each to-do can be modified by simply clicking the "In Progress" or "Done" buttons. Tasks that are overdue based on their due dates but have not yet been completed will be visually highlighted in red, allowing users to prioritise their work effectively. Completed tasks are highlighted in green, providing a clear indication of their status.
-
-The app also offers a sorting feature, by clicking on the "Due Date" table header.
+Accordion component is used to display the list of tasks in a collapsible and expandable format to support mobile view rendering. Clicking on an accordion item's header toggles its expanded/collapsed state. This allows users to easily view and manage individual tasks. The status of each to-do can be modified in the expanded view of the accordion by simply clicking on icons (i.e. hourglass icon is for in progress status, trash bin icon is for delete etc.)
+To enhance the user experience, the accordion's header's background color changes dynamically based on the task's status (e.g., overdue (red), done (green), in progress (yellow)).
 
 The useLocalStorage hook ensures persistent storage, allowing users to resume their to-do list management even after closing the browser or restarting the application. The app remembers the state of the to-do list, ensuring that tasks are listed as they were during the last session.
 
 ## Features
 
-* Add new todos with a title, description, due date, and initial status.
-* Edit the status of todos by marking them as "In Progress" or "Done".
-* Delete todos that are no longer needed.
-* Highlight overdue todos in red and completed todos in green for easy identification.
-* Sort todos based on their due date for better organisation.
+* Add new todos with a title, description and due date.
+* Edit the status of todos using icons: the hourglass icon (yellow) represents 'in progress,' the tick in the circle icon (green) represents 'done,'
+* Delete todos using the red trash bin icon
+* Highlight overdue todos in red, completed todos in green and in progress todos in yellow for easy identification
 * Persistent storage for todos
 
 ## Demo
@@ -27,16 +25,12 @@ Check out the deployed app at https://todo-list-react-k.netlify.app
 
 ## Screenshots
 
-New ToDos added and listed.
+| Desktop | Mobile |
+|---------|---------|
+| ![Start display desktop](./public/start_display_desktop.png) | ![Start display mobile](./public/start_display_mobile.png) |
+| ![Todos desktop](./public/todos_desktop.png) | ![Todos desktop](./public/todos_mobile.png) |
+| ![Open todo desktop](./public/todos_open_desktop.png) | ![Open todo desktop](./public/todos_open_mobile.png) |
 
-![Todo List React App](./public/Todo_list.png)
-
-Clicking on the Due Date header enables the sorting of added ToDos.
-
-![Sorted ToDo List React App](./public/sorted_todo_list.png)
-
-Upon reopening the application, the todos are retrieved from the local storage.
-![Loaded ToDos](./public/loaded_sorted_todo_list.png)
 
 ## Getting Started
 

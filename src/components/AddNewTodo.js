@@ -20,7 +20,7 @@ const AddNewTodo = ({ dispatch }) => {
         status: newTodo.status,
       },
     });
-    setNewTodo({ title: "", description: "", dueDate: "", status: "" });
+    setNewTodo({ title: "", description: "", dueDate: "", status: "To Do" });
   };
 
   return (
