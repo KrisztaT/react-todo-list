@@ -1,7 +1,11 @@
-.overdue {
-    background-image: linear-gradient(to bottom right, #ffcccc, #ff9999) !important;
-  }
+.overdue .accordion-button {
+  background-image: linear-gradient(to bottom right, #ffcccc, #fb7171) !important
+}
 
-.done {
-  background-image: linear-gradient(to bottom right, #ccffe6, #99ffd8) !important;
+.done .accordion-button {
+  background-image: linear-gradient(to bottom right, #ccffe6, #50fab9) !important;
+}
+
+.in-progress .accordion-button{
+  background-image: linear-gradient(to bottom right, #f4ffcc, #f8d84c) !important;
 }

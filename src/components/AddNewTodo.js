@@ -6,7 +6,7 @@ const AddNewTodo = ({ dispatch }) => {
     title: "",
     description: "",
     dueDate: "",
-    status: "",
+    status: "To Do",
   });
 
   const handleSubmit = (e) => {
@@ -25,7 +25,7 @@ const AddNewTodo = ({ dispatch }) => {
 
   return (
     <div className="d-flex justify-content-center align-items-center h-100">
-      <Form onSubmit={handleSubmit} className="w-50 mt-3">
+      <Form onSubmit={handleSubmit} className="w-75 mt-3">
         <Form.Group className="mb-1">
           <Form.Control
             type="text"
@@ -53,20 +53,8 @@ const AddNewTodo = ({ dispatch }) => {
             }
           />
         </Form.Group>
-        <Form.Group className="mb-1">
-          <Form.Control
-            as="select"
-            value={newTodo.status}
-            onChange={(e) => setNewTodo({ ...newTodo, status: e.target.value })}
-          >
-            <option>Choose status...</option>
-            <option>To Do</option>
-            <option>In Progress</option>
-            <option>Done</option>
-          </Form.Control>
-        </Form.Group>
         <div className="d-flex justify-content-center">
-          <Button type="submit" className="mt-3">
+          <Button type="submit" className="btn mt-3">
             Add New ToDo
           </Button>
         </div>
