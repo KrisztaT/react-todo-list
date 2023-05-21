@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Card, Container, Accordion } from "react-bootstrap";
+import { Card, Container, Accordion} from "react-bootstrap";
 import AddNewTodo from "./AddNewTodo";
 import { TodoListContext } from "../contexts/TodoLisContext";
 import TodoItem from "./TodoItem"
+import Header from "./Header";
 
 const TodoList = () => {
   const { todos, dispatch } = useContext(TodoListContext);
@@ -15,16 +16,12 @@ const TodoList = () => {
     dispatch({ type: "CHANGE_STATUS", id, status });
   };
 
-  /*   const sortByDueDate = () => {
-    dispatch({ type: "SORT_BY_DUE_DATE" });
-  }; */
+ 
 
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
       <Card className="shadow-sm col-lg-4 ">
-        <Card.Header as="h1" className="text-center sticky-top">
-          ToDo List
-        </Card.Header>
+       <Header dispatch={dispatch}/>
         <Card.Body>
           {todos.length ? (
             <Accordion defaultActiveKey="0">
