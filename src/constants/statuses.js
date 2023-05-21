@@ -1,5 +1,6 @@
 export const STATUS_DONE = "Done";
 export const STATUS_IN_PROGRESS = "In Progress";
+export const STATUS_TODO = "To Do";
 
 export const CLASSNAME_OVERDUE = "overdue";
 export const CLASSNAME_DONE = "done";

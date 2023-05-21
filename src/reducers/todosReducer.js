@@ -33,6 +33,22 @@ export const todosReducer = (state, action) => {
         const dateB = new Date(b.dueDate);
         return dateA.getTime() - dateB.getTime();
       });
+      case "SORT_BY_STATUS":
+        return [...state].sort((a, b) => {
+          const statusOrder = {
+            "To Do": 1,
+            "In Progress": 2,
+            "Done": 3,
+          };
+          if (statusOrder[a.status] === statusOrder[b.status])
+          {
+            const dateA = new Date(a.dueDate);
+            const dateB = new Date(b.dueDate);
+            return dateA.getTime() - dateB.getTime();
+          }
+          return statusOrder[a.status] - statusOrder[b.status]
+        
+      });
     default:
       return state;
   }
