@@ -80,7 +80,7 @@ const CardHeader = ({ dispatch }) => {
                     {Math.floor(weatherData.main.temp_max)}/
                     {Math.floor(weatherData.main.temp_min)} C{" "}
                   </p>
-                 {/*  <p> {weatherData.weather[0].description} </p> */}
+                 <p> {weatherData.weather[0].description} </p>
                 </>
               )}
             </div>

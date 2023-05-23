@@ -3,8 +3,8 @@ const axios = require('axios');
 
 exports.handler = async function (event, context) {
   try {
-    const { lat, lon, cityName } = event.queryStringParameters;
-   console.log( process.env.WEATHER_API_KEY)
+    const { lat, lon, cityName} = event.queryStringParameters;
+   console.log( cityName, lon, lat)
     let response;
     if (lat && lon) {
       response = await axios.get(

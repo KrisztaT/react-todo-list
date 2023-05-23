@@ -31,7 +31,7 @@ export async function fetchDefaultWeatherData() {
 
   try {
     const response = await fetch(
-      `/.netlify/functions/fetchWeatherData?q=${cityName}&units=metric`
+      `/.netlify/functions/fetchWeatherData?cityName=${cityName}&units=metric`
     );
     if (!response.ok) {
       throw new Error("City not found");

@@ -38,7 +38,6 @@ Check out the deployed app at https://todo-list-react-k.netlify.app
 | ![Sorted by status](./public/todos_desktop_sorted_status.png) | ![Sorted by status](./public/todos_mobile_sorted_status.png) |
 
 
-
 ## Getting Started
 
 1. To run the app locally, clone the repository to your local machine:
