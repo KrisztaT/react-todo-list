@@ -2,7 +2,9 @@
 
 ## Description
 
-This ToDo List App is a simple **React** application designed for practicing the use of **Context** and **Reducer** for efficient state management. It additionally incorporates hooks such as the **useLocalStorage, useEffect, useState** and **Bootstrap** for enhanced user experience.
+This ToDo List App is a simple **React** application designed for practicing the use of **Context** and **Reducer** for efficient state management. It additionally incorporates hooks such as the **useLocalStorage, useEffect, useState** and **Bootstrap** for enhanced user experience. Additionally **netlify function** is added for secure store of API key as an environment variable, ensuring it remains protected.
+
+In the app's header section, buttons for sorting the todos according to their due dates and statuses is placed. Additionally, weather details are shown based on the device's location, and if geolocation isn't accessible, default information is displayed instead. (Styling is in progress)
 
 Each to-do item consists of a title, description, due date, and status (upon adding the task, the status automatically gets the To Do value). Users can add new tasks, edit the status of existing tasks, and delete tasks as needed.
 
@@ -14,6 +16,8 @@ The useLocalStorage hook ensures persistent storage, allowing users to resume th
 ## Features
 
 * Add new todos with a title, description and due date.
+* Sort todos based on due dates and statuses (within statuses todos are sorted by due dates)
+* Weather data display
 * Edit the status of todos using icons: the hourglass icon (yellow) represents 'in progress,' the tick in the circle icon (green) represents 'done,'
 * Delete todos using the red trash bin icon
 * Highlight overdue todos in red, completed todos in green and in progress todos in yellow for easy identification
@@ -30,6 +34,9 @@ Check out the deployed app at https://todo-list-react-k.netlify.app
 | ![Start display desktop](./public/start_display_desktop.png) | ![Start display mobile](./public/start_display_mobile.png) |
 | ![Todos desktop](./public/todos_desktop.png) | ![Todos desktop](./public/todos_mobile.png) |
 | ![Open todo desktop](./public/todos_open_desktop.png) | ![Open todo desktop](./public/todos_open_mobile.png) |
+| ![Sorted by due date](./public/todos_desktop_sorted_duedate.png) | ![Sorted by due date](./public/todos_mobile_sorted_duedate.png) |
+| ![Sorted by status](./public/todos_desktop_sorted_status.png) | ![Sorted by status](./public/todos_mobile_sorted_status.png) |
+
 
 
 ## Getting Started
