@@ -3,7 +3,7 @@ import { Card, Container, Accordion} from "react-bootstrap";
 import AddNewTodo from "./AddNewTodo";
 import { TodoListContext } from "../contexts/TodoLisContext";
 import TodoItem from "./TodoItem"
-import Header from "./Header";
+import CardHeader from "./CardHeader";
 
 const TodoList = () => {
   const { todos, dispatch } = useContext(TodoListContext);
@@ -16,12 +16,11 @@ const TodoList = () => {
     dispatch({ type: "CHANGE_STATUS", id, status });
   };
 
- 
 
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
       <Card className="shadow-sm col-lg-4 ">
-       <Header dispatch={dispatch}/>
+       <CardHeader dispatch={dispatch}/>
         <Card.Body>
           {todos.length ? (
             <Accordion defaultActiveKey="0">
