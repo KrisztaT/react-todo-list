@@ -49,6 +49,10 @@ export const todosReducer = (state, action) => {
           return statusOrder[a.status] - statusOrder[b.status]
         
       });
+      case "EDIT_TODO":
+        return state.map((todo) =>
+        todo.id === action.todo.id ? action.todo : todo
+      );
     default:
       return state;
   }

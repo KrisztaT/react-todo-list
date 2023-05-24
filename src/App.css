@@ -1,11 +1,16 @@
 .overdue .accordion-button {
-  background-image: linear-gradient(to bottom right, #ffcccc, #fb7171) !important
+  background-image: linear-gradient(to bottom right, #F3B7A5, #E4572E) !important
 }
 
 .done .accordion-button {
-  background-image: linear-gradient(to bottom right, #ccffe6, #50fab9) !important;
+  background-image: linear-gradient(to bottom right, #B7D897, #76B041) !important;
 }
 
 .in-progress .accordion-button{
-  background-image: linear-gradient(to bottom right, #f4ffcc, #f8d84c) !important;
+  background-image: linear-gradient(to bottom right, #FFE285, #FFC914) !important;
+}
+
+.weather-icon {
+  height: 50px;
+  width: 50px;
 }

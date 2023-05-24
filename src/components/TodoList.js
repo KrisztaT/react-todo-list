@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Card, Container, Accordion} from "react-bootstrap";
 import AddNewTodo from "./AddNewTodo";
 import { TodoListContext } from "../contexts/TodoLisContext";
@@ -7,6 +7,7 @@ import CardHeader from "./CardHeader";
 
 const TodoList = () => {
   const { todos, dispatch } = useContext(TodoListContext);
+  const [editingTodo, setEditingTodo] = useState(null);
 
   const handleRemoveTodo = (id) => {
     dispatch({ type: "REMOVE_TODO", id });
@@ -16,6 +17,15 @@ const TodoList = () => {
     dispatch({ type: "CHANGE_STATUS", id, status });
   };
 
+  const handleEditTodo = (id) => {
+    const todoToEdit = todos.find((todo) => todo.id === id);
+    setEditingTodo(todoToEdit);
+    //console.log(editingTodo)
+  };
+
+  useEffect(() => {
+    console.log("editingTodo changed:", editingTodo);
+  }, [editingTodo]);
 
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
@@ -31,6 +41,7 @@ const TodoList = () => {
                 todo={todo}
                 handleRemoveTodo={handleRemoveTodo}
                 handleChangeStatus={handleChangeStatus}
+                handleEditTodo={handleEditTodo}
               />
                 )
               })}
@@ -40,7 +51,7 @@ const TodoList = () => {
               You have finished all your tasks! Take a well-deserved rest.
             </div>
           )}
-          <AddNewTodo dispatch={dispatch} />
+          <AddNewTodo dispatch={dispatch} editingTodo={editingTodo} setEditingTodo={setEditingTodo}/>
         </Card.Body>
       </Card>
     </Container>

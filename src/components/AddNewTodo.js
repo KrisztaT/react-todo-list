@@ -1,27 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 
-const AddNewTodo = ({ dispatch }) => {
-  const [newTodo, setNewTodo] = useState({
-    title: "",
-    description: "",
-    dueDate: "",
-    status: "To Do",
-  });
+const AddNewTodo = ({ dispatch, editingTodo, setEditingTodo }) => {
+  const [newTodo, setNewTodo] = useState(
+    editingTodo || { title: "", description: "", dueDate: "", status: "To Do" }
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "ADD_TODO",
-      todo: {
-        title: newTodo.title,
-        description: newTodo.description,
-        dueDate: newTodo.dueDate,
-        status: newTodo.status,
-      },
-    });
+    if (editingTodo) {
+      dispatch({
+        type: "EDIT_TODO",
+        todo: {
+          id: editingTodo.id,
+          title: newTodo.title,
+          description: newTodo.description,
+          dueDate: newTodo.dueDate,
+          status: newTodo.status,
+        },
+      });
+      // Reset the editingTodo state in the parent component after editing is done
+      setEditingTodo(null);
+    } else {
+      dispatch({
+        type: "ADD_TODO",
+        todo: {
+          title: newTodo.title,
+          description: newTodo.description,
+          dueDate: newTodo.dueDate,
+          status: newTodo.status,
+        },
+      });
+    }
     setNewTodo({ title: "", description: "", dueDate: "", status: "To Do" });
   };
+  
+  useEffect(() => {
+    setNewTodo(
+      editingTodo || { title: "", description: "", dueDate: "", status: "To Do" }
+    );
+  }, [editingTodo]);
+
 
   return (
     <div className="d-flex justify-content-center align-items-center h-100">
@@ -54,8 +73,8 @@ const AddNewTodo = ({ dispatch }) => {
           />
         </Form.Group>
         <div className="d-flex justify-content-center">
-          <Button type="submit" className="btn mt-3">
-            Add New ToDo
+          <Button variant="outline-secondary" type="submit" className="btn mt-3">
+          {editingTodo ? "Edit Todo" : "Add Todo"}
           </Button>
         </div>
       </Form>

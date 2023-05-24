@@ -16,14 +16,16 @@ const CardHeader = ({ dispatch }) => {
     dispatch({ type: "SORT_BY_STATUS" });
   };
 
-  
   useEffect(() => {
     const fetchAndSetWeatherData = async () => {
       const currentTime = Date.now();
       const oneHour = 60 * 60 * 1000;
-  
+
       // only fetching weather data every hour
-      if (currentTime - lastFetchDate >= oneHour || localStorage.getItem("closed")) {
+      if (
+        currentTime - lastFetchDate >= oneHour ||
+        localStorage.getItem("closed")
+      ) {
         const data = await fetchWeatherData();
         setWeatherData(data);
         setLastFetchDate(currentTime);
@@ -32,7 +34,7 @@ const CardHeader = ({ dispatch }) => {
     };
 
     fetchAndSetWeatherData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -54,36 +56,39 @@ const CardHeader = ({ dispatch }) => {
   };
 
   return (
-    <Card.Header className="text-center sticky-top">
-      <h1>ToDo List</h1>
-      <ListGroup>
+    <Card.Header className="text-center bg-white sticky-top">
+      <p className="fs-1 text-secondary mb-0">ToDo List</p>
+      <ListGroup className= "overflow auto">
         <ListGroup.Item>
-          <div className="d-flex justify-content-between align-items-center overflow-auto">
-            <div className="d-flex overflow-auto ">
-              <Button variant="outline-secondary" onClick={sortByDueDate}>
-                Date <SortDownAlt size={16} />
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex">
+              <Button variant="outline-secondary" className="me-2 fs-6" onClick={sortByDueDate}>
+                 <SortDownAlt size={16} />
               </Button>
-              <Button variant="outline-secondary" onClick={sortByStatus}>
-                Status <FunnelFill size={16} />
+              <Button variant="outline-secondary" className="me-2 fs-6" onClick={sortByStatus}>
+               <FunnelFill size={16} />
               </Button>
             </div>
-            <div className="d-flex justify-content-center align-items-center flex-column overflow-auto">
-              {weatherData && (
-                <>
-                  <p>{weatherData.name}</p>
-                  <img
-                    id="weather-icon"
-                    src={iconFetcher()}
-                    alt="Weather icon"
-                  />
-                  <p>
-                    {Math.floor(weatherData.main.temp_max)}/
-                    {Math.floor(weatherData.main.temp_min)} C{" "}
-                  </p>
-                 <p> {weatherData.weather[0].description} </p>
-                </>
-              )}
-            </div>
+            {weatherData && (
+              <div className="d-flex align-items-center">
+                <p className="mb-0 mr-2">
+                  {weatherData.name}
+                </p>
+                <img
+                  id="weather-icon"
+                  src={iconFetcher()}
+                  alt="Weather icon"
+                  className="weather-icon mr-2"
+                />
+                <p className="mb-0 mr-2">
+                  {Math.floor(weatherData.main.temp_max)}/
+                  {Math.floor(weatherData.main.temp_min)} C
+                </p>
+             {/*    <p className="mb-0 fs-6" >
+                  {weatherData.weather[0].description}
+                </p> */}
+              </div>
+            )}
           </div>
         </ListGroup.Item>
       </ListGroup>
