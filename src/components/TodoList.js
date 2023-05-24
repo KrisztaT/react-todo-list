@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Card, Container, Accordion} from "react-bootstrap";
 import AddNewTodo from "./AddNewTodo";
 import { TodoListContext } from "../contexts/TodoLisContext";
@@ -23,9 +23,9 @@ const TodoList = () => {
     //console.log(editingTodo)
   };
 
-  useEffect(() => {
+/*   useEffect(() => {
     console.log("editingTodo changed:", editingTodo);
-  }, [editingTodo]);
+  }, [editingTodo]); */
 
   return (
     <Container className="container-fluid vh-80 d-flex justify-content-center align-items-center overflow-auto">
