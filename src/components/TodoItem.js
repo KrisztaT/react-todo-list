@@ -45,28 +45,33 @@ const TodoItem = ({
 
         <div className="d-flex justify-content-evenly">
           <HourglassSplit
-            className="mx-2"
+            className="icon-hover mx-2"
             onClick={() => handleChangeStatus(todo.id, STATUS_IN_PROGRESS)}
             size={32}
             color="#FFC914"
+            title= "In-progress status"
           />
           <CheckCircle
-            className="mx-2"
+            className="icon-hover mx-2"
             onClick={() => handleChangeStatus(todo.id, STATUS_DONE)}
             size={32}
             color="#76B041"
+            title="Done status"
           />
           <PencilSquare
-            className="mx-2"
+            className="icon-hover mx-2"
             onClick={() => handleEditTodo(todo.id)}
             size={32}
             color="#12918F"
+            title="Edit todo"
           />
           <Trash
-            className="mx-2"
+            className="icon-hover mx-2"
             onClick={() => handleRemoveTodo(todo.id)}
             size={32}
             color="#E4572E"
+            title="Delete todo"
+
           />
         </div>
       </Accordion.Body>

@@ -62,10 +62,10 @@ const CardHeader = ({ dispatch }) => {
         <ListGroup.Item>
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex">
-              <Button variant="outline-secondary" className="me-2 fs-6" onClick={sortByDueDate}>
+              <Button variant="outline-secondary" className="me-2 fs-6" onClick={sortByDueDate} title="Sort by due date">
                  <SortDownAlt size={16} />
               </Button>
-              <Button variant="outline-secondary" className="me-2 fs-6" onClick={sortByStatus}>
+              <Button variant="outline-secondary" className="me-2 fs-6" onClick={sortByStatus} title="Sort by status">
                <FunnelFill size={16} />
               </Button>
             </div>
