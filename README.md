@@ -4,7 +4,7 @@
 
 The ToDo List App is a **React** application specifically designed to facilitate the practice of efficient state management using **Context** and **Reducer**. It leverages various hooks such as **useLocalStorage, useEffect, useState**, and **Bootstrap** to provide an enhanced user experience. To ensure the security of sensitive data, the app integrates **netlify functions**, which store the API key as an environment variable and guarantee its protection.
 
-In the header section of the app, users can find buttons for sorting their todos based on due dates and statuses. Moreover, the app displays weather details according to the device's location. In case geolocation is inaccessible, default information is presented instead.
+In the header section of the app, weather details are displayed according to the device's location. In case geolocation is inaccessible, default information is presented instead. Dropdown menu is also added to the header for sorting todos based on due dates and statuses.
 
 Each to-do item consists of a title, description, due date, and status. By default, a newly added task is assigned the "To Do" status. Users have the flexibility to add, edit, and delete tasks as required.
 
@@ -46,8 +46,8 @@ Check out the deployed app at https://todo-list-react-k.netlify.app
 |Sorted by status||
 | ![Sorted by status](./public/todos_desktop_sorted_status.png) | ![Sorted by status](./public/todos_mobile_sorted_status.png) |
 |Edit todo||
-| ![Edit click desktop](./public/todo_edit_upon_click_desktop.png) | ![Edit click mobile](./public/todo_edit_upon_click_mobile.png) |
 | ![Edit todo desktop](./public/todo_edit_desktop.png) | ![Edit todo mobile](./public/todo_edit_mobile.png) |
+| ![Edit click desktop](./public/todo_edit_upon_click_desktop.png) | ![Edit click mobile](./public/todo_edit_upon_click_mobile.png) |
 | ![Edited todo desktop](./public/todo_edited_desktop.png) | ![Edited todo mobile](./public/todo_edited_mobile.png) |
 
 
