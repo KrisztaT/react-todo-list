@@ -42,7 +42,7 @@ const TodoItem = ({
             </p>
           </div>
         </div>
-
+        
         <div className="d-flex justify-content-evenly">
           <HourglassSplit
             className="icon-hover mx-2"
